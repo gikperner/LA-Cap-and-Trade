@@ -8,6 +8,7 @@ Created on Fri Apr 22 21:48:49 2022
 import pandas as pd
 
 # %% Reading files
+# Individual files need 
 files = {
     '2011-ghg-emissions-2018-11-05.xlsx': {'header':8},
     '2012-ghg-emissions-2019-11-04.xlsx': {'header':8},
@@ -27,15 +28,12 @@ raw_emit = pd.DataFrame()
 datalist=[]
 
 for cur in files:
-    ### TWEAK 3: infer the data year
     parts = cur.split('-')
     year = parts[0]
-    ### TWEAK 4: get the header for this file
     file_info = files[cur]
     hlines = file_info['header']
-    fh = pd.read_excel(cur,sheet_name = year+" "+sheet_name,header=hlines,
+    fh = pd.read_excel('Input_data/'+cur,sheet_name = year+" "+sheet_name,header=hlines,
                        index_col='ARB ID',dtype=arb)
-    # raw_emit = pd.concat([raw_emit,fh])
     datalist.append(fh)
     print(f'File read: {cur}')
 print(datalist[0].index)
