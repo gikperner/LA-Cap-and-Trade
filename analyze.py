@@ -10,7 +10,7 @@ import matplotlib.pyplot as plt
 
 loc_keys = {'ARBID':str,'Zip Code':str,'FACID':str,'NAICS Code':str,'Year':str}
 
-emit = pd.read_csv('Stack_Merge3.csv',index_col=["ARBID",'Year'])
+emit = pd.read_csv('geo_merged.csv',index_col=["ARBID",'Year'])
 
 # %% Do some summary stats
 hi_low = emit.sort_values('Total Covered Emissions',ascending=False)
