@@ -10,7 +10,7 @@ import pandas as pd
 
 loc_keys = {'ARBID':str,'Zip Code':str,'FACID':str,'NAICS Code':str,'Year':str}
 
-raw_loc = pd.read_csv('FacilityEmissions.csv',dtype=loc_keys,skipfooter=1
+raw_loc = pd.read_csv('Input_data/FacilityEmissions.csv',dtype=loc_keys,skipfooter=1
                        ,index_col='ARBID')
 emit = pd.read_csv('Pct_Data.csv',dtype=loc_keys,index_col=["ARBID",'Year'])
 
