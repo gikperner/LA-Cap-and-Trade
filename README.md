@@ -95,3 +95,4 @@ This geopackage consists of 12 layers. One layer consists of all of the data fro
 
 ## Results
 
+After running the two optional scripts, I found both expected and unexpected results. As ![Top Emitters](Top Emitters Independent of Year.png)

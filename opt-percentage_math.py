@@ -21,7 +21,8 @@ highest.set_index((highest['Legal Name'])+" "+(highest['Year'].astype(str)),inpl
 high_pct = highest['pct_emission']
 
 fig1,ax1 = plt.subplots(dpi=300)
-ax1.set_title('Lowest Percentage of Total Emissions')
+ax1.set_title('Lowest % Entity Emissions')
+ax1.set_xlabel('% of Entity Emissions')
 high_pct.plot.barh(ax=ax1)
 
 year_pct = emit['pct_emission'].groupby('Year').rank(method='min',ascending=True)
@@ -33,17 +34,25 @@ year_graph.set_index((year_graph['Legal Name'])+" "+(year_graph['Year'].astype(s
 year_graph = year_graph['pct_emission']
 year_graph = year_graph.sort_values()
 fig2,ax2 = plt.subplots(dpi=300)
-ax2.set_title('Lowest 2 Percentage Emitters Each Year')
+ax2.set_title('Lowest 2 % Entity Emissions Each Year')
+ax2.set_xlabel('% of Entity Emissions')
 year_graph.plot.barh(ax=ax2)
 
-test = emit[['pct_emission']].groupby('Year').median()
-year_graph = emit[year_pct==year_pct.size()/2]
+median = emit[['pct_emission']].groupby('Year').median()
+median = median.rename(columns={'pct_emission':'median_pct'})
+med_merge = emit.merge(median,on='Year')
+med_merge['is_median'] = abs(med_merge['pct_emission']-med_merge['median_pct'])
+med_pct = med_merge['is_median'].groupby('Year').rank(method='min',ascending=True)
+med_pct = med_pct.to_frame()
+
+year_graph = emit[(med_pct==1)|(med_pct==2)]
+# year_graph = med_merge.nsmallest(1,"is_median")
 year_graph = year_graph.reset_index()
 year_graph.set_index((year_graph['Legal Name'])+" "+(year_graph['Year'].astype(str)),inplace=True)
 year_graph = year_graph['pct_emission']
 year_graph = year_graph.sort_values()
 fig3,ax3 = plt.subplots(dpi=300)
-ax3.set_title('Top 2 Emitters Each Year')
+ax3.set_title('Median % Entity Emissions')
 year_graph.plot.barh(ax=ax3)
 
 fig1.tight_layout()
