@@ -37,7 +37,6 @@ ax2.set_title('Lowest 2 Percentage Emitters Each Year')
 year_graph.plot.barh(ax=ax2)
 
 test = emit[['pct_emission']].groupby('Year').median()
-
 year_graph = emit[year_pct==year_pct.size()/2]
 year_graph = year_graph.reset_index()
 year_graph.set_index((year_graph['Legal Name'])+" "+(year_graph['Year'].astype(str)),inplace=True)
