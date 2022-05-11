@@ -56,8 +56,12 @@ This script utilizes the output of `02-percentage.py` and the file `FacilityEmis
 
 This script utilizes the `calenviroscreen40shpf2021shp.zip` input file and the output of `03-merging`. The script first filters LA County out of the shape file and writes it to the `Enviroscreen_LA` layer of the output file. It then converts all of the data to GeoDataFrames to then write it to the `All Year Data` layer. Finally, the script does a similar process for every year and creates a separate year for emissions to its corresponding layer.
 ___
-### `opt-analyze` and `opt-percentage_math` 
+### `opt-analyze` and `opt-percentage_math`
+These scripts serve similar functions. Each script determines either the highest emitter in terms of total covered emissions or the facilities with the lowest share of total emissions and outputs corresponding bar graphs.
 ## Outputs
-aaa
+### `Stack_Ag_Emit.csv`
+
+### `Pct_Data.csv`
+
 ## Results
 aaa
