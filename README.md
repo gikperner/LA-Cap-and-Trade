@@ -18,7 +18,7 @@ All input data is provided in the folder `Input_Data`.
 
 To update the data regarding [facility level data](2020-ghg-emissions-2021-11-04.xlsx), go to the [Mandatory GHG Reporting ARB page](https://ww2.arb.ca.gov/mrr-data). Input files are up to date as of 5/11/2022.
 
-To update [entity level data](/Input_Data/2019compliancereport.xlsx), ie if there are changes to facilities owned by an entity, go to [Cap-And-Trade Program Data](https://ww2.arb.ca.gov/our-work/programs/cap-and-trade-program/cap-and-trade-program-data) under the heading `Compliance Reports`
+To update [entity level data](/2019compliancereport.xlsx), ie if there are changes to facilities owned by an entity, go to [Cap-And-Trade Program Data](https://ww2.arb.ca.gov/our-work/programs/cap-and-trade-program/cap-and-trade-program-data) under the heading `Compliance Reports`
 
 
 ## Scripts
