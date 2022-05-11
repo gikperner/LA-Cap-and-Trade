@@ -21,15 +21,20 @@ la_map = ca_map.query('County=="Los Angeles"')
 
 # %%
 years = ['2011','2012','2013','2014','2015','2016','2017','2018','2019','2020']
-
+drop_col = ['Latitude','Longitude']
 if os.path.exists(filename):
     os.remove(filename)
 
 la_map.to_file(filename,layer='Enviroscreen_LA',index=False)
+
+all_geo = gpd.GeoDataFrame(data=emit,geometry=gpd.points_from_xy(emit.Longitude,emit.Latitude))
+all_geo.drop(columns=drop_col,inplace=True)
+all_geo.to_file(filename,layer="All Year Data")
 
 for cur in years:
     data = emit.query('Year == @cur')
     # how to create GeoDataFrame from 
     # https://geopandas.org/en/stable/gallery/create_geopandas_from_pandas.html
     geo = gpd.GeoDataFrame(data=data,geometry=gpd.points_from_xy(data.Longitude,data.Latitude))
+    geo.drop(columns=drop_col,inplace=True)
     geo.to_file(filename,layer=cur+' emissions',index=False)

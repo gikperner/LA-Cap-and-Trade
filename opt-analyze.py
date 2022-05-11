@@ -18,10 +18,11 @@ hi_low = emit.sort_values('Total Covered Emissions',ascending=False)
 highest = hi_low[:20]
 highest = highest.reset_index()
 highest.set_index((highest['Legal Name'])+" "+(highest['Year'].astype(str)),inplace=True)
-high_emit = highest['Total Covered Emissions']/1e6
+high_emit = highest['Total Covered Emissions']
 
 fig1,ax1 = plt.subplots(dpi=300)
 ax1.set_title('Top Emitters Independent of Year')
+ax1.set_xlabel('Metric Tons of CO2e')
 high_emit.plot.barh(ax=ax1)
 
 year_emit = emit['Total Covered Emissions'].groupby('Year').rank(method='min',ascending=False)
@@ -34,6 +35,7 @@ year_graph = year_graph['Total Covered Emissions']
 year_graph = year_graph.sort_values()
 fig2,ax2 = plt.subplots(dpi=300)
 ax2.set_title('Top 2 Emitters Each Year')
+ax2.set_xlabel('Metric Tons of CO2e')
 year_graph.plot.barh(ax=ax2)
 
 fig1.tight_layout()

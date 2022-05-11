@@ -32,6 +32,7 @@ merged = merged.set_index(['Year'],append=True)
 cap_only = merged.query('cap_and_trade == "Yes"')
 cap_only.drop(columns='cap_and_trade',inplace=True)
 # 0% emissions exist mostly when the total emissions are so extreme that the 
-# facility emissions are rounded to 0.
+# facility emissions are rounded to 0 and are from producers who are responsible
+# for the end-user emissions (for example a heating company)
 cap_only = cap_only.replace(cap_only['pct_emission']==0,np.nan)
 cap_only.to_csv('geo_merged.csv')

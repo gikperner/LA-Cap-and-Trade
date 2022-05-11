@@ -36,7 +36,9 @@ fig2,ax2 = plt.subplots(dpi=300)
 ax2.set_title('Lowest 2 Percentage Emitters Each Year')
 year_graph.plot.barh(ax=ax2)
 
-year_graph = emit[(year_pct==10)|(year_pct==11)]
+test = emit[['pct_emission']].groupby('Year').median()
+
+year_graph = emit[year_pct==year_pct.size()/2]
 year_graph = year_graph.reset_index()
 year_graph.set_index((year_graph['Legal Name'])+" "+(year_graph['Year'].astype(str)),inplace=True)
 year_graph = year_graph['pct_emission']
@@ -47,5 +49,5 @@ year_graph.plot.barh(ax=ax3)
 
 fig1.tight_layout()
 fig2.tight_layout()
-fig1.savefig('Lowest_pct.png')
-fig2.savefig('Lowest_pct_yr.png')
+# fig1.savefig('Lowest_pct.png')
+# fig2.savefig('Lowest_pct_yr.png')
