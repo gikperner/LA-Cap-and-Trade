@@ -20,6 +20,7 @@ To update the data regarding facility level data (ie: 2020-ghg-emissions-2021-11
 
 To update entity level data (2019compliancereport.xlsx), for times when there are changes to facilities owned by an entity, go to [Cap-And-Trade Program Data](https://ww2.arb.ca.gov/our-work/programs/cap-and-trade-program/cap-and-trade-program-data) under the heading `Compliance Reports`
 
+
 To update the file used for geographic information (FacilityEmissions.csv), go to the [Pollution Mapping Tool](https://www.arb.ca.gov/ei/tools/pollution_map/#), go to the `county` field and filter to `Los Angeles`. From there, click on the `Data` tab and use the `Group by` option for facility. Once complete, click `Get Data`
 
 To update the EnviroScreen file, go to [the CalEnviroScreen 4.0 page](https://oehha.ca.gov/calenviroscreen/report/calenviroscreen-40). At the very bottom of the page is the `Downloads` heading, using the SHP file version.
