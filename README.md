@@ -95,4 +95,29 @@ This geopackage consists of 12 layers. One layer consists of all of the data fro
 
 ## Results
 
-After running the two optional scripts, I found both expected and unexpected results. As ![Top Emitters](Top Emitters Independent of Year.png)
+After running the two optional scripts, I found both expected and unexpected results. Unsurprisingly, the 20 highest emitters found in terms of total Metric Tons of CO2e, regardless of year, were refineries found within the county.
+___
+![Top Emitters](Top_Emitters.png)
+___
+The trend continues even when limiting to only 2 facilities from every year.
+
+___
+![Top 2 yearly emitters](Yearly_2_Emitters.png)
+___
+The unexpected results were when looking at percentage emitters. I was expecting to see both:
+   1. Refineries and
+   2. Percentages over 1-2%.
+
+Instead, the results showed that the lowest percentages were local energy producers and water purification plants.
+
+___
+![Lowest % Entity emissions](Lowest_pct.png)
+
+![Lowest 2 % Entity emissions, yearly](Lowest_pct_yr.png)
+___
+
+By combining the data onto the existing CalEnviroScreen map data, an interesting trend for futher study appears. The map illustrates two different data sets. First are each of the points. The points grow in size the smaller the facility's share of entity emissions it represents. The color ramp illustrates poverty rate.
+___
+![Map showing % entity emissions and poverty rate](Model_Map.png)
+___
+While no statistical tests have been done, there does appear to be some correlation between low entity emissions share and poorer neighborhoods. More importantly, it shows the kind of visualization that can be performed with the geopackage. While this map just illustrates the trend for 2011, similar maps could be made for each year and statistical analysis on the overlap between low-share sites and their proximity to low income neighborhoods.

@@ -21,7 +21,7 @@ highest.set_index((highest['Legal Name'])+" "+(highest['Year'].astype(str)),inpl
 high_emit = highest['Total Covered Emissions']
 
 fig1,ax1 = plt.subplots(dpi=300)
-ax1.set_title('Top Emitters Independent of Year')
+ax1.set_title('Top Emitters')
 ax1.set_xlabel('Metric Tons of CO2e')
 high_emit.plot.barh(ax=ax1)
 
@@ -40,5 +40,5 @@ year_graph.plot.barh(ax=ax2)
 
 fig1.tight_layout()
 fig2.tight_layout()
-fig1.savefig('Top Emitters Independent of Year.png')
-fig2.savefig('Top 2 Emitters Each Year.png')
+fig1.savefig('Top_Emitters.png')
+fig2.savefig('Yearly_2_Emitters.png')
