@@ -29,6 +29,8 @@ la_map.to_file(filename,layer='Enviroscreen_LA',index=False)
 
 all_geo = gpd.GeoDataFrame(data=emit,geometry=gpd.points_from_xy(emit.Longitude,emit.Latitude))
 all_geo.drop(columns=drop_col,inplace=True)
+all_geo = all_geo.set_crs("EPSG:4326")
+all_geo = all_geo.to_crs(la_map.crs)
 all_geo.to_file(filename,layer="All Year Data")
 
 for cur in years:
@@ -37,4 +39,6 @@ for cur in years:
     # https://geopandas.org/en/stable/gallery/create_geopandas_from_pandas.html
     geo = gpd.GeoDataFrame(data=data,geometry=gpd.points_from_xy(data.Longitude,data.Latitude))
     geo.drop(columns=drop_col,inplace=True)
+    geo = geo.set_crs("EPSG:4326")
+    geo = geo.to_crs(la_map.crs)
     geo.to_file(filename,layer=cur+' emissions',index=False)
