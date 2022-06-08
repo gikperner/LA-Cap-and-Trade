@@ -26,6 +26,7 @@ if os.path.exists(filename):
     os.remove(filename)
 
 la_map.to_file(filename,layer='Enviroscreen_LA',index=False)
+emit.reset_index(inplace=True)
 
 all_geo = gpd.GeoDataFrame(data=emit,geometry=gpd.points_from_xy(emit.Longitude,emit.Latitude))
 all_geo.drop(columns=drop_col,inplace=True)
