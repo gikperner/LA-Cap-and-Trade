@@ -23,7 +23,7 @@ high_emit = highest['Total Covered Emissions']
 fig1,ax1 = plt.subplots(dpi=300)
 ax1.set_title('Top Emitters')
 ax1.set_xlabel('Metric Tons of CO2e')
-high_emit.plot.barh(ax=ax1)
+high_emit.plot.barh(ax=ax1,figsize=(50,20))
 
 year_emit = emit['Total Covered Emissions'].groupby('Year').rank(method='min',ascending=False)
 year_order = year_emit.sort_values()
@@ -36,7 +36,7 @@ year_graph = year_graph.sort_values()
 fig2,ax2 = plt.subplots(dpi=300)
 ax2.set_title('Top 2 Emitters Each Year')
 ax2.set_xlabel('Metric Tons of CO2e')
-year_graph.plot.barh(ax=ax2)
+year_graph.plot.barh(ax=ax2,figsize=(50,20))
 
 fig1.tight_layout()
 fig2.tight_layout()
